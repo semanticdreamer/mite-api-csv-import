@@ -1,0 +1,3 @@
+[submodule "vagrant-puppet"]
+	path = vagrant-puppet
+	url = git@github.com:semanticdreamer/vagrant-puppet-template.git
