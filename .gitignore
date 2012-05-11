@@ -1,0 +1,3 @@
+.vagrant
+configuration.yml
+!configuration.yml.dist

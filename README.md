@@ -2,6 +2,10 @@
 
 ##Usage
 
+##Execute Importer
+
+* `ruby importer.rb`
+
 ##Development Environment
 
 Setup according to `README` of project [vagrant-puppet-template][vagrant-puppet-template].
