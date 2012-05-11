@@ -1,12 +1,12 @@
-#Import time entries to mite. from CSV file.
+# Import time entries to mite. from CSV file.
 
-##Usage
+## Usage
 
-##Execute Importer
+## Execute Importer
 
-* `ruby importer.rb`
+    ruby importer.rb
 
-##Development Environment
+## Development Environment
 
 Setup according to `README` of project [vagrant-puppet-template][vagrant-puppet-template].
 
@@ -21,6 +21,7 @@ So, first `ssh` into your vagrant box:
     cd /vagrant
     bundle install
 
+[vagrant]: http://vagrantup.com/ "Vagrant"
 [vagrant-puppet-template]: https://github.com/semanticdreamer/vagrant-puppet-template "vagrant-puppet-template"
 [mite]: http://mite.yo.lk/ "mite. Sleek time tracking for teams & freelancers."
 [mite-rb]: https://github.com/yolk/mite-rb "The official ruby library for interacting with the RESTful mite.api."
