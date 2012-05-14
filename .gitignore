@@ -1,3 +1,5 @@
 .vagrant
 configuration.yml
 !configuration.yml.dist
+*.csv
+!example.csv

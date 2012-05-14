@@ -1,2 +1,3 @@
 source "http://rubygems.org"
-gem "mite-rb", "~> 0.4.4"
+gem "mite-rb"
+gem "activeresource", "2.3.14"

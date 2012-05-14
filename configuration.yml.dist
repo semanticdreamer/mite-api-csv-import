@@ -1,4 +1,16 @@
-# mite. API
+# mite. API Authentication
+# You must enable the mite.api for your user within the webinterface of mite! It is disabled by default.
 mite:
-    account: YOUR MITE ACCOUNT
-    key: YOUR MITE KEY
+    account: "YOUR MITE ACCOUNT"
+    key: "YOUR MITE KEY"
+
+# Mapping CSV columns header
+csv:
+    file: "YOUR CSV FILE"
+    columns:
+        customer: "Customer"
+        project: "Project"
+        service: "Category"
+        date_at: "Start"
+        minutes: "Duration"
+        note: "Notes"
