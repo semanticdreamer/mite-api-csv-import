@@ -1,10 +1,10 @@
 # Import time entries to mite. from CSV file.
 
 ## Features
-- auto create [mite.][mite] customer records (if not found by name)
-- auto create [mite.][mite] project records (if not found by name)
-- auto create [mite.][mite] service records (if not found by name)
-- auto create [mite.][mite] time entries (if tracked time greater than 0 minutes)
+- auto create [mite.][mite] project records - if not found by project name
+- auto create [mite.][mite] customer records and project relation - if project name didn't exist
+- auto create [mite.][mite] service records - if not found by service name
+- auto create [mite.][mite] time entries - if tracked time greater than 0 minutes
 - display stats about created [mite.][mite] records
 
 ## Example Output
