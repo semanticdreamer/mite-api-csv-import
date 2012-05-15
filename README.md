@@ -1,5 +1,7 @@
 # Import time entries to mite. from CSV file.
 
+Import time tracking data from CSV data source using RESTful Webservices provided by [mite.api][mite.api] (wrapped by [mite-rb - The official ruby library for interacting with the RESTful mite.api][mite-rb]).
+
 ## Features
 - auto create [mite.][mite] project records - if not found by project name
 - auto create [mite.][mite] customer records and project relation - if project name didn't exist
@@ -52,6 +54,7 @@ Execute importer
 - [Ruby][ruby] application managed using [Bundler][gembundler].
 
 [mite]: http://mite.yo.lk/ "mite."
+[mite.api]: http://mite.yo.lk/en/api/index.html "mite.api"
 [vagrant]: http://vagrantup.com/ "Vagrant"
 [puppet]: http://projects.puppetlabs.com/projects/puppet "Puppet"
 [vagrant-puppet-template]: https://github.com/semanticdreamer/vagrant-puppet-template "vagrant-puppet-template"
