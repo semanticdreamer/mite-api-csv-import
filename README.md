@@ -36,7 +36,10 @@ Provide CSV file - have a look at `example.csv` file for format reference.
 
 Rename `configuration.yml.dist` to `configuration.yml` and adjust to your needs.
 
-**Note** Don't forget to provide proper column header mapping!
+**Notes**
+
+- Make sure your CSV file is valid, e.g. proper use of text delimiter, etc.
+- Don't forget to provide proper column header mapping!
 
 Execute importer
 
