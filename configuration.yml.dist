@@ -14,3 +14,6 @@ csv:
         date_at: "Start"
         minutes: "Duration"
         note: "Notes"
+#        hourlyrate: "Hourlyrate"
+#        archived: "Archived"
+#        billable: "Billable"

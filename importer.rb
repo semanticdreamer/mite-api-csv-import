@@ -49,6 +49,24 @@ if Mite.validate!
     end
     minutes = time_to_minutes(row[config['csv']['columns']['minutes']])
     
+    def hourlyrate_to_cent(hourlyrate_str)
+      hourlyrate = hourlyrate_str.to_i
+      hourlyrate * 100
+    rescue # no additional error handling here
+      -1
+    end
+    hourlyrate = hourlyrate_to_cent(row[config['csv']['columns']['hourlyrate']])
+    
+    def flag_to_boolean(flag_str)
+      return true if flag_str =~ (/(true|t|yes|y|1)$/i)
+      return false
+    rescue # no additional error handling here
+      -1
+    end
+    archived = flag_to_boolean(row[config['csv']['columns']['archived']])
+    
+    billable = flag_to_boolean(row[config['csv']['columns']['billable']])
+    
     # do only consider a tracked time greater than 0 minutes
     if minutes > 0
       
@@ -68,7 +86,9 @@ if Mite.validate!
         
         project = Mite::Project.create(
           :name => row[config['csv']['columns']['project']],
-          :customer_id => customer.id
+          :customer_id => customer.id,
+          :hourly_rate => hourlyrate,
+          :archived => archived
         )
         project_count += 1
       end
@@ -78,7 +98,8 @@ if Mite.validate!
         )
       if service.nil? 
         service = Mite::Service.create(
-          :name => row[config['csv']['columns']['service']]
+          :name => row[config['csv']['columns']['service']],
+          :billable => billable
         )
         service_count += 1
       end
