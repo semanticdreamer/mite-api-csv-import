@@ -1,5 +1,7 @@
 .vagrant
-configuration.yml
-!configuration.yml.dist
+config.yml
+!config.yml.dist
 *.csv
 !example.csv
+importer.exe
+dist

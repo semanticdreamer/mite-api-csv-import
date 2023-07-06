@@ -1,20 +1,34 @@
 #!/usr/bin/env ruby
 
+# suppress warnings
+$VERBOSE = nil
+
 require "mite-rb"
 require 'csv'
 require 'date'
 
-config = YAML.load_file('configuration.yml')
+require "net_http_ssl_fix"
+
+# current directory
+pwd = __dir__
+
+# ocra ruby env?
+ocra_exe = ENV['OCRA_EXECUTABLE'] || ''
+if !ocra_exe.empty?
+  pwd = ocra_exe.sub('\\importer.exe', '')
+end
+
+config = YAML::load_file(File.join(pwd, 'config.yml'))
 
 # check configuration
 if config['mite']['account'].nil?
-  raise RuntimeError, "Importer requires an MITE Account in the configuration.yml file."
+  raise RuntimeError, "Importer requires an MITE Account in the config.yml file."
 end
 if config['mite']['key'].nil?
-  raise RuntimeError, "Importer requires an MITE Key in the configuration.yml file."
+  raise RuntimeError, "Importer requires an MITE Key in the config.yml file."
 end
 if !File.file?(config['csv']['file'])
-  raise RuntimeError, "Importer requires a valid CSV file in the configuration.yml file."
+  raise RuntimeError, "Importer requires a valid CSV file in the config.yml file."
 end
 
 puts "\n-------------------------------------------"

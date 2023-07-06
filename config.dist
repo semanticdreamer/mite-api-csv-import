@@ -6,11 +6,11 @@ mite:
 
 # Mapping CSV columns header
 csv:
-    file: "YOUR CSV FILE"
+    file: "YOUR CSV FILE" # C:\Users\…\Downloads\example.csv
     columns:
         customer: "Customer"
         project: "Project"
         service: "Category"
-        date_at: "Start"
+        date_at: "Date"
         minutes: "Duration"
         note: "Notes"

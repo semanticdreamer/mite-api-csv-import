@@ -24,7 +24,7 @@ Import time tracking data from CSV data source using RESTful Webservices provide
 
 ## Prerequisites
 
-- [Ruby][ruby] (tested with **ruby 1.9.2p290**)
+- [Ruby][ruby] (tested with **ruby 3.2.2** Docker and **3.0.6** Windows)
 
 ## Setup
 
@@ -36,7 +36,7 @@ Install required `gems` (see `Gemfile`) - preferably using [Bundler][gembundler]
 
 Provide CSV file - have a look at `example.csv` file for format reference.
 
-Rename `configuration.yml.dist` to `configuration.yml` and adjust to your needs.
+Rename `config.yml.dist` to `config.yml` and adjust to your needs.
 
 **Notes**
 
@@ -49,16 +49,51 @@ Execute importer
 
 ## Development Environment
 
-- Proudly Built by [Vagrant][vagrant] and Managed by [Puppet][puppet] leveraging [vagrant-puppet-template][vagrant-puppet-template].
-- For setup instructions checkout `README` of [vagrant-puppet-template][vagrant-puppet-template].
-- [Ruby][ruby] application managed using [Bundler][gembundler].
+Built by [Docker][docker] and Managed by [GNU Make][make].
 
 [mite]: http://mite.yo.lk/ "mite."
 [mite.api]: http://mite.yo.lk/en/api/index.html "mite.api"
-[vagrant]: http://vagrantup.com/ "Vagrant"
-[puppet]: http://projects.puppetlabs.com/projects/puppet "Puppet"
-[vagrant-puppet-template]: https://github.com/semanticdreamer/vagrant-puppet-template "vagrant-puppet-template"
+[docker]: https://www.docker.com/ "Docker"
+[make]: https://www.gnu.org/software/make/ "GNU Make"
 [mite]: http://mite.yo.lk/ "mite. Sleek time tracking for teams & freelancers."
 [mite-rb]: https://github.com/yolk/mite-rb "The official ruby library for interacting with the RESTful mite.api."
 [ruby]: http://www.ruby-lang.org/ "Ruby"
 [gembundler]: http://gembundler.com/ "Bundler: The best way to manage Ruby applications" 
+
+```shell
+# Generate Gemfile.lock
+make bundle-install
+
+# Build Container
+make build
+
+# Run importer
+make importer
+
+# Run bash shell
+make shell
+```
+
+### Build Windows executable for Ruby script 
+
+
+
+```powershell
+# Windows
+
+# https://rubyinstaller.org/
+# download and install rubyinstaller-devkit-3.0.6-1-x64.exe
+# https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.6-1/rubyinstaller-devkit-3.0.6-1-x64.exe
+
+gem install mite-rb
+
+# https://github.com/larsch/ocra
+gem install ocra
+
+gem install minitest
+
+# https://github.com/liveeditor/net_http_ssl_fix
+gem install net_http_ssl_fix
+
+ocra --console --chdir-first --icon importer.ico --output importer.exe --no-enc --add-all-core --no-autoload --dll ruby_builtin_dlls\libssl-1_1-x64.dll --dll ruby_builtin_dlls\libyaml-0-2.dll --dll ruby_builtin_dlls\libgmp-10.dll --dll ruby_builtin_dlls\libcrypto-1_1-x64.dll --no-dep-run --gem-full --gemfile .\Gemfile .\importer.rb
+```
